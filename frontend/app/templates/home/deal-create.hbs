@@ -1,0 +1,75 @@
+<div class="row main col-md-12">
+    <div class="panel-heading">
+        <div class="panel-title text-center">
+            <h1 class="title">New Deal </h1>
+        </div>
+    </div>
+    <div class="main-login main-center">
+        <form class="form-horizontal" method="post" action="#">
+
+            <div class="form-group">
+                <label for="firstname" class="cols-sm-2 control-label">Title</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                      {{input type="text" class="form-control" name="title" id="title"  placeholder="Enter Title" value=newDeal.title}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="firstname" class="cols-sm-2 control-label">Description</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                      {{input type="text" class="form-control" name="description" id="description"  placeholder="Enter Description" value=newDeal.description}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="cols-sm-2 control-label">Publish Date</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                      {{input type="date" class="form-control"  placeholder="Publish Date" value=publishDate}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="username" class="cols-sm-2 control-label">Price</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                      {{input type="text" class="form-control"  placeholder="Enter Price" value=newDeal.price}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="username" class="cols-sm-2 control-label">Discounted Price</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                      {{input type="text" class="form-control"  placeholder="Enter Discounted Price" value=newDeal.discountedPrice}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="firstname" class="cols-sm-2 control-label">Quantity</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                      {{input type="number" class="form-control" placeholder="Enter Quantity" value=newDeal.quantity}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <button type="button" class="btn btn-primary btn-lg btn-block login-button" {{action 'newDeal' newDeal}}>Save</button>
+            </div>
+        </form>
+    </div>
+</div>
