@@ -274,6 +274,16 @@ define('frontend/models/order', ['exports', 'ember-data'], function (exports, _e
 
   exports['default'] = orderModel;
 });
+define('frontend/models/role', ['exports', 'ember-data'], function (exports, _emberData) {
+  var roleModel;
+
+  roleModel = _emberData['default'].Model.extend({
+    users: _emberData['default'].hasMany('user'),
+    name: _emberData['default'].attr('string')
+  });
+
+  exports['default'] = roleModel;
+});
 define('frontend/models/user', ['exports', 'ember-data'], function (exports, _emberData) {
   var userModel;
 
@@ -287,7 +297,7 @@ define('frontend/models/user', ['exports', 'ember-data'], function (exports, _em
     name: (function () {
       return this.get('firstname') + ' ' + this.get('lastname');
     }).property('firstname', 'lastname'),
-    posts: _emberData['default'].hasMany('post')
+    role: _emberData['default'].belongsTo('role')
   });
 
   exports['default'] = userModel;
@@ -359,6 +369,10 @@ define('frontend/routes/home', ['exports', 'ember'], function (exports, _ember) 
     beforeModel: function beforeModel() {
       if (!_ember['default'].isPresent(this.get('session.user'))) {
         return this.transitionTo('sign_in');
+      } else {
+        if (this.get('session.user.role_id') === 1) {
+          return this.transitionTo('home.deal-create');
+        }
       }
     },
     model: function model() {

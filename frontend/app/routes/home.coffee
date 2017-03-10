@@ -4,6 +4,9 @@ signInRoute = Ember.Route.extend
   beforeModel: ->
     unless Ember.isPresent(@get('session.user'))
       @transitionTo('sign_in')
+    else
+      if (@get('session.user.role_id')) == 1
+        @transitionTo('home.deal-create')
 
   model: ->
     @store.findAll('deal')

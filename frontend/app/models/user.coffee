@@ -10,6 +10,6 @@ userModel = DS.Model.extend
   name: (->
     this.get('firstname') + ' ' + this.get('lastname')
   ).property('firstname', 'lastname')
-  posts: DS.hasMany('post')
+  role: DS.belongsTo('role')
 
 `export default userModel`
